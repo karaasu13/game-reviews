@@ -10,7 +10,6 @@ import {
   apiRequest,
   clearReviewComment,
   clearReviewRating,
-  deleteReview,
   deleteGame,
   fetchGameById,
   fetchReviewsByGame,
@@ -128,7 +127,6 @@ export default function GameDetails() {
   const [error, setError] = useState<string | null>(null);
   const [ratingBusy, setRatingBusy] = useState(false);
   const [clearBusy, setClearBusy] = useState<"rating" | "comment" | null>(null);
-  const [deleteBusyId, setDeleteBusyId] = useState<number | null>(null);
   const [deleteGameBusy, setDeleteGameBusy] = useState(false);
   const [deleteGameConfirmOpen, setDeleteGameConfirmOpen] = useState(false);
   const [authMode, setAuthMode] = useState<AuthMode>("login");
@@ -288,26 +286,6 @@ export default function GameDetails() {
       setError(message);
     } finally {
       setClearBusy(null);
-    }
-  };
-
-  // Apaga review (própria ou admin/owner)
-  const handleDeleteReview = async (reviewId: number) => {
-    if (!user || !token) {
-      openAuthModal("login");
-      return;
-    }
-
-    setDeleteBusyId(reviewId);
-    setError(null);
-    try {
-      await deleteReview(reviewId, token);
-      await refreshGameData();
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Failed to delete review";
-      setError(message);
-    } finally {
-      setDeleteBusyId(null);
     }
   };
 
