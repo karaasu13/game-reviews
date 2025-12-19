@@ -1,0 +1,93 @@
+.section{
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border-radius: 20px;
+  background: rgba(17,24,39,.28);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,.25);
+}
+
+.headerRow{ margin-bottom: var(--space-4); }
+.h2{ margin: 0; font-size: 22px; }
+.sub{ margin: 6px 0 0; color: var(--color-muted); }
+
+.controls{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.input{
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(8,12,30,.35);
+  color: var(--color-text);
+  padding: 0 var(--space-4);
+  outline: none;
+}
+.input:focus{
+  border-color: rgba(99,102,241,.55);
+}
+
+.platforms{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.platformsLabel{
+  font-size: 13px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+
+.chipRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(8,12,30,.35);
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.chip:hover{ transform: translateY(-1px); }
+
+.chipActive{
+  background: linear-gradient(135deg, rgba(99,102,241,.8), rgba(59,130,246,.85));
+  border-color: rgba(255,255,255,.28);
+  color: #0c122b;
+  font-weight: 700;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+.empty{
+  color: var(--color-muted);
+  padding: var(--space-6);
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px dashed rgba(255,255,255,.12);
+}
+@media (max-width: 700px){
+  .controls{ grid-template-columns: 1fr; }
+}
+
+@media (min-width: 860px){
+  .controls{ grid-template-columns: 1.05fr 1fr; align-items: start; }
+}

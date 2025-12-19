@@ -1,0 +1,159 @@
+.header{
+  height: 105px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center; 
+  padding: 0 var(--space-8);
+  background: linear-gradient(180deg, rgba(8,12,30,.95), rgba(8,12,30,.55));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.leftSlot{
+  justify-self: start;
+}
+
+.authBtn{
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(17,24,39,.55);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.authBtn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.35);
+  background: rgba(24,35,68,.75);
+}
+
+.sessionControls{
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.userChip{
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+}
+
+.userInitial{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(82,104,255,.85), rgba(56,189,248,.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.userName{
+  font-weight: 600;
+}
+
+.userEmail{
+  font-size: .8rem;
+  color: var(--color-muted);
+}
+
+.signOutBtn{
+  padding: .65rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.signOutBtn:hover{
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.35);
+}
+
+.brand{
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.logoMark{
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+}
+
+.rightSlot{ justify-self: end; }
+
+.addGameBtn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(245,213,71,.9), rgba(250,204,21,.65));
+  color: #0a112a;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  margin-right: 10px;
+}
+
+.addGameBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.38);
+  filter: saturate(1.05);
+}
+
+.wishlistBtn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(82,104,255,.65), rgba(56,189,248,.55));
+  color: #0a112a;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.wishlistBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.38);
+  filter: saturate(1.1);
+}

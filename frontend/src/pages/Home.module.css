@@ -1,0 +1,151 @@
+.page{
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(1200px 700px at 18% 22%, rgba(99,102,241,.28), transparent 62%),
+    radial-gradient(1100px 650px at 82% 30%, rgba(56,189,248,.14), transparent 60%),
+    radial-gradient(900px 650px at 55% 95%, rgba(16,185,129,.10), transparent 65%),
+    linear-gradient(180deg, #050816, #070b1c 45%, #060a18);
+}
+
+/* container ocupa toda a largura útil */
+.main{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 28px 32px 80px;
+  box-sizing: border-box;
+}
+
+/* secção “hero” vira um painel com mais profundidade */
+
+/* seção sem moldura para Today’s games */
+.hero{
+  position: relative;
+
+  /* ocupa tudo */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  /* padding consistente com o main */
+  padding: 6px 0 10px;
+
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+
+
+/* glow suave atrás do título */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: -120px -120px auto -120px;
+  height: 260px;
+  background: radial-gradient(circle at 30% 60%, rgba(99,102,241,.22), transparent 60%);
+  pointer-events: none;
+}
+
+.h1{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: .2px;
+}
+
+.p{
+  margin: 8px 0 0;
+  color: rgba(229,231,235,.70);
+  max-width: 60ch;
+}
+
+/* feedback UI */
+.loading, .error{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(8,12,30,.35);
+  color: rgba(229,231,235,.85);
+}
+.error{
+  border-color: rgba(239,68,68,.35);
+  color: rgba(254,202,202,.95);
+}
+
+/* carrossel horizontal com fade nas laterais */
+.todayScroller{
+  margin-top: 18px;
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 10px;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 10px 0 14px;
+
+  /* fade nas laterais (fica menos “estranho” visualmente) */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    black 28px,
+    black calc(100% - 28px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    black 28px,
+    black calc(100% - 28px),
+    transparent 100%
+  );
+}
+
+.todayRow{
+  display: flex;
+  gap: 14px;
+  padding: 0 10px;
+  min-width: max-content;
+}
+
+/* snap por card */
+.todayRow > *{
+  scroll-snap-align: start;
+}
+
+/* scrollbar “glass” só para este carrossel */
+.todayScroller::-webkit-scrollbar{ height: 10px; }
+.todayScroller::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.06);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.todayScroller::-webkit-scrollbar-thumb{
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(99,102,241,.55),
+    rgba(56,189,248,.35)
+  );
+  border: 2px solid rgba(5,8,22,.85);
+}
+.todayScroller::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(
+    90deg,
+    rgba(99,102,241,.70),
+    rgba(56,189,248,.50)
+  );
+}
+
+/* mobile: padding menor */
+@media (max-width: 700px){
+  .main{ padding: 18px 16px 60px; }
+  .hero{ padding: 18px; border-radius: 18px; }
+  .h1{ font-size: 22px; }
+}

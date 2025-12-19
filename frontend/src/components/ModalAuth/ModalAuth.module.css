@@ -1,0 +1,239 @@
+.backdrop {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem;
+	background: radial-gradient(circle at 20% 20%, rgba(82, 104, 255, 0.18), rgba(5, 8, 22, 0.96));
+	backdrop-filter: blur(10px);
+	z-index: 40;
+	animation: fade-in 0.2s ease-out;
+}
+
+.dialog {
+	width: min(520px, 100%);
+	background: rgba(5, 8, 22, 0.98);
+	border-radius: 28px;
+	padding: clamp(1.5rem, 3vw, 2.75rem);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75);
+	position: relative;
+	overflow: hidden;
+	animation: rise 0.28s ease-out;
+}
+
+.dialog::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.2), transparent 55%);
+	pointer-events: none;
+}
+
+.dialog > * {
+	position: relative;
+	z-index: 1;
+}
+
+.closeBtn {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: var(--color-text);
+	border-radius: 999px;
+	width: 42px;
+	height: 42px;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+	background: rgba(255, 255, 255, 0.16);
+	transform: translateY(-1px);
+}
+
+.tabs {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+	background: rgba(255, 255, 255, 0.02);
+	padding: 0.35rem;
+	border-radius: 999px;
+	margin-bottom: 1.5rem;
+}
+
+.tabBtn {
+	border: none;
+	border-radius: 999px;
+	padding: 0.9rem 1rem;
+	background: transparent;
+	color: var(--color-muted);
+	font-weight: 600;
+	cursor: pointer;
+	transition: color 0.2s ease, background 0.2s ease;
+}
+
+.tabActive {
+	background: linear-gradient(135deg, rgba(82, 104, 255, 0.9), rgba(56, 189, 248, 0.5));
+	color: #fff;
+	box-shadow: 0 12px 30px rgba(82, 104, 255, 0.35);
+}
+
+.copy {
+	margin-bottom: 1.25rem;
+}
+
+.title {
+	margin: 0 0 0.35rem;
+	font-size: 1.6rem;
+	letter-spacing: -0.01em;
+}
+
+.description {
+	margin: 0;
+	color: var(--color-muted);
+	font-size: 0.95rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.field label {
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
+.field input {
+	padding: 0.95rem 1.1rem;
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--color-text);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+	outline: none;
+	border-color: rgba(82, 104, 255, 0.85);
+	box-shadow: 0 0 0 1px rgba(82, 104, 255, 0.65);
+}
+
+.error {
+	padding: 0.85rem 1rem;
+	border-radius: 14px;
+	background: rgba(239, 68, 68, 0.12);
+	border: 1px solid rgba(239, 68, 68, 0.35);
+	color: #fecaca;
+	font-size: 0.9rem;
+}
+
+.info {
+	padding: 0.85rem 1rem;
+	border-radius: 14px;
+	background: rgba(59, 130, 246, 0.12);
+	border: 1px solid rgba(59, 130, 246, 0.35);
+	color: #bfdbfe;
+	font-size: 0.9rem;
+}
+
+.success {
+	padding: 0.85rem 1rem;
+	border-radius: 14px;
+	background: rgba(34, 197, 94, 0.12);
+	border: 1px solid rgba(34, 197, 94, 0.35);
+	color: #bbf7d0;
+	font-size: 0.9rem;
+}
+
+.submitBtn {
+	padding: 1rem 1.25rem;
+	border-radius: 18px;
+	border: none;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	background: linear-gradient(135deg, rgba(82, 104, 255, 0.95), rgba(6, 182, 212, 0.85));
+	color: #fff;
+	box-shadow: 0 15px 40px rgba(82, 104, 255, 0.4);
+	transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+	transform: translateY(-1px);
+	box-shadow: 0 20px 45px rgba(82, 104, 255, 0.5);
+}
+
+.submitBtn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.secondaryAction {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
+.secondaryLink {
+	background: none;
+	border: none;
+	color: #7dd3fc;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 0;
+	transition: color 0.2s ease;
+}
+
+.secondaryLinkSpace {
+	margin-left: 0.6rem;
+}
+
+.secondaryLink:hover {
+	color: #bae6fd;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(30px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@media (max-width: 640px) {
+	.dialog {
+		padding: 1.5rem;
+		border-radius: 22px;
+	}
+
+	.tabs {
+		gap: 0.5rem;
+	}
+}
