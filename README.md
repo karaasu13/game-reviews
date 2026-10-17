@@ -118,4 +118,4 @@ npm run dev
 
 ## Author
 
-Gabriel Corvo ([@karaasu13](https://github.com/karaasu13))
+Corvo ([@karaasu13](https://github.com/karaasu13))
